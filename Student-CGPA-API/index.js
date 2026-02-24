@@ -57,6 +57,13 @@ app.get("/students/count", (req, res) => {
   });
 });
 
+app.get("/students/count/sem4", (req, res) => {
+  const count = students.filter(s => s.semester === 4).length;
+  res.status(200).json({
+    count: count
+  });
+});
+
 app.get("/students/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const student = students.find((s) => s.id === id);
