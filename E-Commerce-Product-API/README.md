@@ -28,4 +28,4 @@ npm run dev
 Feel free to open issues or pull requests!
 
 ## 📄 License
-This project is licensed under the MIT License.
+This project is licensed under the ISC License.
