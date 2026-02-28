@@ -46,6 +46,13 @@ app.get("/states", (req, res) => {
   res.status(200).json(states);
 });
 
+app.get("/states/highest-gdp", (req, res) => {
+  const highestGdpState = states.reduce((prev, current) =>
+    prev.gdp > current.gdp ? prev : current
+  );
+  res.status(200).json(highestGdpState);
+});
+
 app.get("/states/:id", (req, res) => {
   const stateId = parseInt(req.params.id);
   const state = states.find(s => s.id === stateId);
@@ -57,12 +64,7 @@ app.get("/states/:id", (req, res) => {
   }
 });
 
-app.get("/states/highest-gdp", (req, res) => {
-  const highestGdpState = states.reduce((prev, current) =>
-    prev.gdp > current.gdp ? prev : current
-  );
-  res.status(200).json(highestGdpState);
-});
+
 
 app.post("/states", (req, res) => {
   const newState = req.body;
